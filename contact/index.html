@@ -172,6 +172,7 @@
     .main-content {
       flex: 1;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
@@ -205,57 +206,18 @@
       line-height: 1.5;
     }
 
-    /* Contact Form */
-    form {
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: left;
+    .contact-email {
+      margin: 40px 0;
+      padding: 20px;
+      background-color: rgba(59, 130, 246, 0.1);
+      border-radius: var(--border-radius);
     }
 
-    form div {
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      font-weight: 500;
-      margin-bottom: 8px;
-      font-size: clamp(14px, 2vw, 16px);
-    }
-
-    input, textarea {
+    .iframe-container {
       width: 100%;
-      padding: 12px 15px;
-      border-radius: var(--border-radius);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(14px, 2vw, 16px);
-      transition: border-color var(--transition-speed) ease;
+      max-width: 640px;
+      margin: 0 auto;
     }
-
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--accent-color);
-      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
-    }
-
-    textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
-
-    button {
-      background-color: var(--accent-color);
-      color: white;
-      border: none;
-      border-radius: var(--border-radius);
-      padding: 12px 25px;
-      font-size: 16px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: background-color var(--transition-speed) ease;
-    }
-
 
     /* Mobile Menu */
     @media (max-width: 768px) {
@@ -270,6 +232,10 @@
       .nav-menu.mobile a {
         font-size: 18px;
         padding: 5px 0;
+      }
+      
+      .iframe-container {
+        width: 100%;
       }
     }
 
@@ -314,21 +280,13 @@
     <div class="content-container">
       <h1>Contact Us</h1>
       
-      <form>
-        <div>
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div>
-          <label for="query">Query</label>
-          <textarea id="query" name="query" required minlength="20" maxlength="400"></textarea>
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+      <div class="contact-email">
+        <p>You may reach us over mail at <a href="mailto:contact@axlemove.com">contact@axlemove.com</a></p>
+      </div>
+      
+      <div class="iframe-container">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe2Dzvb09I4kHsNjK-j7yv9En_6u0rhYZlUMfODy-9P8baJtw/viewform?embedded=true" width="640" height="916" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      </div>
     </div>
   </main>
 
