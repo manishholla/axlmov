@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AXLEMOVE - Contact Us</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #000000;
+      --accent-color: #3b82f6;
+      --bg-color: #ffffff;
+      --transition-speed: 300ms;
+      --border-radius: 15px;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-color);
+      color: var(--primary-color);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      -webkit-user-select: none;
+      user-select: none;
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 20px;
+      width: 100%;
+      padding: 0 clamp(20px, 5vw, 40px);
+      display: flex;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+/*       background: rgba(255, 255, 255, 0.8); */
+      background: #ebdef0;
+      border-radius: var(--border-radius);
+      padding: clamp(12px, 2vw, 15px) clamp(20px, 3vw, 25px);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: height var(--transition-speed) ease;
+      height: clamp(50px, 8vh, 60px);
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    .top-bar.active {
+      height: clamp(160px, 25vh, 180px);
+    }
+    
+    .company-name {
+      font-size: clamp(18px, 2.5vw, 22px);
+      font-weight: 600;
+      color: var(--primary-color);
+      text-decoration: none; /* Removes the underline */
+      cursor: pointer; /* Shows pointer cursor on hover */
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      outline: none;
+      border: none;
+      background: transparent;
+      padding: 5px;
+      position: absolute;
+      right: clamp(20px, 3vw, 25px);
+      z-index: 1010;
+    }
+
+    .hamburger span {
+      width: 28px;
+      height: 2px;
+      background: var(--primary-color);
+      transition: all var(--transition-speed) ease;
+      border-radius: 2px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: clamp(15px, 3vw, 20px);
+    }
+
+    .nav-menu.mobile {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      width: 100%;
+      padding-top: 30px;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity var(--transition-speed) ease, 
+                  transform var(--transition-speed) ease;
+    }
+
+    .nav-menu.mobile.active {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .nav-menu a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: clamp(16px, 1.8vw, 18px);
+      font-weight: 500;
+      transition: color var(--transition-speed) ease;
+      outline: none;
+      position: relative;
+      padding: 5px 0;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--accent-color);
+      transition: width var(--transition-speed) ease;
+    }
+
+    .nav-menu a:hover {
+      color: var(--accent-color);
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: clamp(20px, 5vw, 40px);
+      margin-top: 80px;
+    }
+
+    .content-container {
+      max-width: 800px;
+      width: 100%;
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: clamp(32px, 6vw, 48px);
+      font-weight: 700;
+      margin-bottom: clamp(30px, 5vh, 40px);
+      color: var(--primary-color);
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: var(--primary-color);
+      opacity: 0.8;
+      line-height: 1.5;
+    }
+
+    /* Contact Form */
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    form div {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 8px;
+      font-size: clamp(14px, 2vw, 16px);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: var(--border-radius);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(14px, 2vw, 16px);
+      transition: border-color var(--transition-speed) ease;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    button {
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: var(--border-radius);
+      padding: 12px 25px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color var(--transition-speed) ease;
+    }
+
+
+    /* Mobile Menu */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-menu.desktop {
+        display: none;
+      }
+      
+      .nav-menu.mobile a {
+        font-size: 18px;
+        padding: 5px 0;
+      }
+    }
+
+    /* Dark mode support */
+    @media (prefers-color-scheme: light) {
+      :root {
+        --primary-color: #f8fafc;
+        --bg-color: #0f172a;
+        --accent-color: #60a5fa;
+      }
+      
+      .top-bar {
+        background: rgba(15, 23, 42, 0.8);
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="top-bar">
+      <a href="index.html" class="company-name">AXLEMOVE</a>
+      <button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-menu desktop">
+        <a href="#careers" aria-label="View Careers">Careers</a>
+        <a href="contact.html" aria-label="Contact Us">Contact Us</a>
+      </div>
+      <div class="nav-menu mobile">
+        <a href="#careers" aria-label="View Careers">Careers</a>
+        <a href="contact.html" aria-label="Contact Us">Contact Us</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="content-container">
+      <h1>Contact Us</h1>
+      
+      <form>
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+          <label for="query">Query</label>
+          <textarea id="query" name="query" required minlength="20" maxlength="400"></textarea>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    // Use modern JavaScript with better event handling
+    document.addEventListener('DOMContentLoaded', () => {
+      const topBar = document.querySelector('.top-bar');
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.querySelector('.nav-menu.mobile');
+      
+      // Toggle menu function
+      window.toggleMenu = function() {
+        topBar.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+      }
+      
+      // Close menu when clicking outside:
+      document.addEventListener('click', (event) => {
+        // If we click the hamburger itself, let the toggle function handle it
+        if (hamburger.contains(event.target)) {
+          return;
+        }
+        
+        // If menu is open and click is outside the menu content
+        if (topBar.classList.contains('active') && !mobileMenu.contains(event.target)) {
+          toggleMenu();
+        }
+      });
+      
+      // Allow keyboard navigation for accessibility
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && topBar.classList.contains('active')) {
+          toggleMenu();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
