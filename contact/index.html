@@ -215,8 +215,14 @@
 
     .iframe-container {
       width: 100%;
-      max-width: 640px;
+      max-width: 100%; /* Allow it to use the full width of the content container */
       margin: 0 auto;
+    }
+    
+    .iframe-container iframe {
+      width: 100%;
+      min-height: 916px;
+      border: 0;
     }
 
     /* Mobile Menu */
@@ -236,6 +242,31 @@
       
       .iframe-container {
         width: 100%;
+      }
+    }
+    
+    @media (min-width: 992px) {
+      .content-container {
+        max-width: 900px; /* Increase the overall content width */
+      }
+      
+      .iframe-container {
+        width: 100%;
+      }
+      
+      .iframe-container iframe {
+        min-height: 1000px; /* Make it taller on desktop */
+      }
+    }
+    
+    /* Large desktop screens */
+    @media (min-width: 1200px) {
+      .content-container {
+        max-width: 1000px; /* Even wider on large screens */
+      }
+      
+      .iframe-container iframe {
+        min-height: 1100px;
       }
     }
 
@@ -285,7 +316,7 @@
       </div>
       
       <div class="iframe-container">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe2Dzvb09I4kHsNjK-j7yv9En_6u0rhYZlUMfODy-9P8baJtw/viewform?embedded=true" width="640" height="916" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe2Dzvb09I4kHsNjK-j7yv9En_6u0rhYZlUMfODy-9P8baJtw/viewform?embedded=true&usp=sf_link" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
       </div>
     </div>
   </main>
