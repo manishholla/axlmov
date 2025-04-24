@@ -10,9 +10,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-color: #000000;
+      --primary-color: #000000; 
       --accent-color: #3b82f6;
-      --bg-color: #ffffff;
+      --bg-color: #ffffff;      /* Light background */
+      --text-color: #333333;
+      --navbar-bg: #ebdef0;
       --transition-speed: 300ms;
       --border-radius: 15px;
       --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -292,16 +294,21 @@
     }
 
     /* Dark mode support */
-    @media (prefers-color-scheme: light) {
+    @media (prefers-color-scheme: dark) {
       :root {
-        --primary-color: #f8fafc;
-        --bg-color: #0f172a;
-        --accent-color: #60a5fa;
+        --bg-color: #121212;     /* Dark background */
+        --primary-color: #ffffff; /* Inverted text color */
+        --navbar-bg: rgba(30, 30, 30, 0.8);
+        --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       }
       
       .top-bar {
-        background: rgba(15, 23, 42, 0.8);
+        background: var(--navbar-bg);
         border-color: rgba(255, 255, 255, 0.1);
+      }
+      
+      .contact-email {
+        background-color: rgba(59, 130, 246, 0.2); /* Slightly adjusted for dark mode */
       }
     }
   </style>
